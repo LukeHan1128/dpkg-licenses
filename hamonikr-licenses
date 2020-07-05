@@ -19,7 +19,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with dpkg-licenses.  If not, see <http://www.gnu.org/licenses/>.
 
-#set -e
+set -e
 
 function fn_create_table(){
 	pkg_nm=$1
@@ -94,6 +94,6 @@ COLUMNS=2000 dpkg -l | grep '^.[iufhwt]' | while read pState package pVer pArch 
     fn_create_table "$package" "$license"
   else
 #    printf "$format" "$pState" "${package:0:30}" "${pVer:0:30}" "${pArch:0:6}" "$license" "${pDesc:0:60}" >> $FNAME
-    fn_create_table "${package:0:30}" "$license"
+    fn_create_table "${package}" "$license"
   fi 
 done
